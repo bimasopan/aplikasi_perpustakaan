@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>daftar</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            border: none;
+            outline: none;
+        
+        }
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: aliceblue;
+            padding: 40px;
+            position: relative;
+            width: 380px;
+            border-radius: 4px;
+            margin: auto;
+            top: 5em;
+        }
+        .container input{
+            display: block;
+            padding: 15px;
+            width: 300px;
+            position: relative;
+            right: 0px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+        .container button,label{
+            padding: 10px;
+            width: 300px;
+            position: relative;
+            border-radius: 4px;
+            left: 10px;
+        }
+        .container button{
+            background-color: rgb(20, 75, 224);
+            transition: all 0.5s ease;
+        }
+        .container button:hover{
+            background-color: rgb(33, 137, 172);
+            cursor: pointer;
+        }
+        .pesan{
+            padding: 20px;
+            position: absolute;
+            background-color: rgba(224, 76, 76, 0.664);
+           /*background-color: rgba(83, 216, 22, 0.726);*/
+            width: 20rem;
+            margin-top: 20px;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form">
+            <label for="user">Username:</label>
+            <input type="text" id="user" name="username" placeholder="Masukan username"><br>
+            <label for="pass">Password:</label>
+            <input type="password" id="pass" name="password" placeholder="Mssukan password"><br>
+            <button type="submit" id="login">Login</button>
+            <div class="pesan">
+                <p id="p"></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const user = document.getElementById("user")
+        const pass = document.getElementById('pass')
+        const login = document.getElementById("login")
+        const pesan = document.getElementsByClassName("pesan")[0]
+        const p = document.getElementById('p')
+
+      /*  const data = {
+            username: user.value,
+            password: pass.value
+        }*/
+        login.addEventListener('click',function(event){
+            const data = {
+                username: user.value,
+                password: pass.value
+            }
+            let url = "http://localhost:4000/"
+
+            if (data.username === '' || data.password === '') {
+                //event.preventDefault()
+                //alert("username dan password tidak boleh kosong")
+                pesan.style.display = 'block'
+                p.innerHTML ="Username atau Password belum diisi";
+                setTimeout(function(){
+                    pesan.style.display='none';
+                },2000)
+            }else{
+                fetch(url,{
+                    method:'POST',
+                    headers: {'Content-Type' : 'application/json'},
+                    body: JSON.stringify({
+                        username: data.username,
+                        password: data.password
+                    })
+                })
+                .then(Response => {
+                    if (!Response.ok){
+                        throw new Error(`HTTP: ERROR, ${Response}`)
+                    }
+                    return Response.json()
+                })
+                .then(data => {
+                   if (data.message === "Username atau Password salah"){
+                        pesan.style.background = 'rgba(224, 76, 76, 0.664)'
+                        pesan.style.display = 'block'
+                        p.innerHTML = "Username atau Password yang Anda masukkan salah!";
+                        setTimeout(function(){
+                            pesan.style.display = 'none'
+                        },3000)
+                    }else{
+                        alert("ok")
+                    }
+                })
+                .catch(Error => {
+                  //  console.log("Server tidak merespon "+Error)
+                  console.error(Error)
+                })
+            }
+        })
+    </script>
+</body>
+</html

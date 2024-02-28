@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>testing</title>
+</head>
+<body>
+    <label for="username">username: </label>
+    <input type="text" name="username" id="username"><br>
+    <label for="password">password: </label>
+    <input type="password" name="password" id="password"><br>
+    <button type="button" onclick="klik()">Login</button>
+    <script>
+        const username = document.getElementById("username");
+        const password = document.getElementById("password");
+
+        function klik(){
+            const data = {
+                username: username.value,
+                password: password.value
+            }
+
+            fetch("http://localhost:4000/tes",{
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(Response =>{
+                if (!Response.ok){
+                    throw new Error(`HTTP: ERROR, status ${Response.status}`);
+                }
+                return Response.json()
+            })
+            .then(data=> console.log(data))
+            .catch(Error =>{
+                console.log(`ERROR: ${Error.message}`)
+            })
+        }
+        
+    </script>
+</body>
+</html>
