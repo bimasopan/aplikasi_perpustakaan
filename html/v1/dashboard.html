@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard</title>
+    <link rel="shortcut icon" href="/html/img/boruto1.jpg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo"><h1>perpus bima</h1></div>
+        <li><a href="#"><span class="material-symbols-outlined">menu</span></a></li>
+        <div class="kotak">
+            <li id="notif"><a href="#"><span class="material-symbols-outlined">notifications</span></a></li>
+            <li id="mail"><a href="#"><span class="material-symbols-outlined">mail</span></a></li>
+            <li><div class="bundar"></div><a href="#" id="admin">Administrator</a></li>
+            <span class="material-symbols-outlined">verified</span>
+        </div>
+    </div>
+    <div class="containerD">
+        <div class="sidebar">
+            <div class="akun">
+                <div class="Logo"></div>
+                <h2>Administrator</h2>
+                <img src="img/social-media.png" alt="logo">
+                <li><p>Akun terverifikasi</p></li>
+            </div>
+            <h3>Main Menu</h3>
+            <li><span class="material-symbols-outlined">Dashboard</span><a href="#">Home</a></li>
+            <li><span class="material-symbols-outlined">folder_open</span><a href="#">Master Data</a></li>
+            <li><span class="material-symbols-outlined">library_books</span><a href="#">Katalog Book</a></li>
+            <li><span class="material-symbols-outlined">library_books</span><a href="#">Laporan Perpustakaan  </a></li>
+            <h3>Lain Lain</h3>
+            <li><span class="material-symbols-outlined">info</span><a href="#">Identitas Applikasi</a></li>
+            <li><span class="material-symbols-outlined">mail</span><a href="#">Pesan</a></li>
+            <h3>Lanjutan</h3>
+            <li><span class="material-symbols-outlined">move_item</span><a href="http://localhost:5000/admin">Keluar</a></li>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+            <div class="dash">
+                <h1>Dashboard</h1>
+                <h2 id="time"></h2><
+            </div>
+            <div class="menyapa">
+                <p>Selamat datang, Administrator di Administrator perpustakaan bima</p>
+            </div>
+            <div class="card">
+                <div class="icon">
+                    <span class="material-symbols-outlined">groups</span>
+                </div>
+                <div class="info">
+
+                </div>
+                <div class="count">
+                    <h1 id="C"></h1>
+                    <p>Anggota</p>
+                </div>
+                <div class="moreinfo">
+                    <li><a href="#">moreinfo</a><span class="material-symbols-outlined">move_item</span></li>
+                </div>
+            </div>
+            <div class="card" id="bookCard">
+                <div class="icon">
+                    <span class="material-symbols-outlined">menu_book</span>
+                </div>
+                <div class="info">
+
+                </div>
+                <div class="count">
+                    <h1 id="D"></h1>
+                    <p>Buku</p>
+                </div>
+                <div class="moreinfo">
+                    <li><a href="#">moreinfo</a><span class="material-symbols-outlined">move_item</span></li>
+                </div>
+            </div>
+            <div class="card" id="pinjam">
+                <div class="icon">
+                    <span class="material-symbols-outlined">move_item</span>
+                </div>
+                <div class="info">
+
+                </div>
+                <div class="count">
+                    <h1 id="E"></h1>
+                    <p>Peminjaman</p>
+                </div>
+                <div class="moreinfo">
+                    <li><a href="#">moreinfo</a><span class="material-symbols-outlined">move_item</span></li>
+                </div>
+            </div>
+            <div class="card" id="pengembalian">
+                <div class="icon">
+                    <span class="material-symbols-outlined">move_item</span>
+                </div>
+                <div class="info">
+
+                </div>
+                <div class="count">
+                    <h1 id="F"></h1>
+                    <p>pengembalian</p>
+                </div>
+                <div class="moreinfo">
+                    <li><a href="#">moreinfo</a><span class="material-symbols-outlined">move_item</span></li>
+                </div>
+            </div>
+    </div>
+    <footer>hak Cipta  &copy; 2024 by BIMA</footer>
+    <script src="./js/dashboard.js"></script>
+</body>
+</html>

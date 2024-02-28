@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Login | perpus bima sena</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form">
+            <label for="user">Username: </label>
+            <input type="text" id="user" name="username" placeholder="Masukan username"><br>
+            <label for="pass">Password: </label>
+            <input type="password" name="password" id="pass" placeholder="Masukan password"><br>
+            <button type="submit" id="btn">Login</button>
+            <a href="http://localhost:8000/daftar" class="link"><p>Daftar Akun Baru?</p></a>
+            <div class="cek">
+                <p id="pesan">username dan password tidak boleh kosong</p>
+            </div>
+        </div>
+    </div>
+    <script src="./js/login.js"></script>
+</body>
+</html>
